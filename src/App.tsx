@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Checkout from './pages/Checkout';
+import Dashboard from './pages/Dashboard';
 import { CartItem } from './types';
 
 function ScrollToTop() {
@@ -53,17 +54,22 @@ export default function App() {
 
   const clearCart = () => setCart([]);
 
+  const withLayout = (page: ReactNode) => (
+    <Layout cart={cart} removeFromCart={removeFromCart} updateQuantity={updateQuantity}>
+      {page}
+    </Layout>
+  );
+
   return (
     <Router>
       <ScrollToTop />
-      <Layout cart={cart} removeFromCart={removeFromCart} updateQuantity={updateQuantity}>
-        <Routes>
-          <Route path="/" element={<Home addToCart={addToCart} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/checkout" element={<Checkout cart={cart} clearCart={clearCart} />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        <Route path="/" element={withLayout(<Home addToCart={addToCart} />)} />
+        <Route path="/about" element={withLayout(<About />)} />
+        <Route path="/contact" element={withLayout(<Contact />)} />
+        <Route path="/checkout" element={withLayout(<Checkout cart={cart} clearCart={clearCart} />)} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
     </Router>
   );
 }
