@@ -61,7 +61,7 @@ export default function Home() {
               </div>
               <div className="fintech-app-screen">
                 <div className="fintech-app-greeting">
-                  <span className="fintech-app-avatar">J</span>
+                  <img className="fintech-app-avatar" src="https://res.cloudinary.com/nygp3wws/image/upload/v1795295569/PHOTO-2026-11-21-22-11-59.jpg" alt="Enoch Chukwudi" />
                   <div><small>Good morning, Enoch</small><b>Chukwudi!</b></div>
                 </div>
                 <div className="fintech-app-balance">
