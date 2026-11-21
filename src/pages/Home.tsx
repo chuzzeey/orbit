@@ -62,7 +62,7 @@ export default function Home() {
               <div className="fintech-app-screen">
                 <div className="fintech-app-greeting">
                   <span className="fintech-app-avatar">J</span>
-                  <div><small>Good morning, Fahim</small><b>Jonathon!</b></div>
+                  <div><small>Good morning, Enoch</small><b>Chukwudi!</b></div>
                 </div>
                 <div className="fintech-app-balance">
                   <span>Your balance</span>
